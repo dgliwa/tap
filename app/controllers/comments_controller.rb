@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   respond_to :html, :json
-  skip_before_filter :verify_authenticity_token, only: [:create]
+  skip_before_filter :verify_authenticity_token, only: [:create, :callback]
 
   def create
     beer = Beer.find comment_params[:beer_id]
