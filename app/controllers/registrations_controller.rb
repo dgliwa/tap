@@ -3,7 +3,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-	debug
     params.require(:user).permit(:email, :phone_number, :password, :password_confirmation)
   end
 
