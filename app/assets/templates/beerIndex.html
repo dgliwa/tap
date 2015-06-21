@@ -8,7 +8,7 @@
       </div>
       <div class="content">
         <a class="header">{{ beer.name }}</a>
-        <i class="fa fa-weixin" title="text-message" style="float: right;"></i>
+        <i class="fa fa-weixin" title="text-message" ng-click="vm.toggleBeer(beer)" style="float: right;"></i>
         <div class="meta">
           <i class="fa fa-map-marker" title="location" style="float: left;"></i>
           <span class="date">Wicker Park, Chicago, IL</span>
@@ -18,10 +18,11 @@
         </div>
       </div>
       <div class="extra content">
-        <a>
+        <a ng-show="!beer.toggled">
           <i class="user icon"></i>
           #IPA
         </a>
+        <input ng-show="beer.toggled" ng-model="beer.text" ng-enter="vm.message(beer)">
         <div class="right floated author">
           <img class="ui avatar image" src="http://api.randomuser.me/portraits/thumb/women/39.jpg">
             <i class="fa fa-mars" title="male"></i>

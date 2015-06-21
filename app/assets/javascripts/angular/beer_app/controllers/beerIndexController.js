@@ -22,10 +22,13 @@ angular.module("beerApp.controllers").controller("BeerIndexController", ["$locat
     vm.message = function(beer) {
         comments.save({beer_id: beer.id, text: beer.text}).$promise
             .then(function(response) {
-               beer.commented = true;
+                beer.toggled = false;
             }, function(data) {
             });
     };
 
+    vm.toggleBeer = function(beer) {
+        beer.toggled = beer.toggled ? false : true;
+    }
 }]);
 

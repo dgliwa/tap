@@ -62,6 +62,8 @@ gem 'bcrypt', '~> 3.1.7'
 
   # Devise
   gem 'devise'
+  gem 'devise-bootstrap-views'
+
   gem 'httpi'
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-angular'
