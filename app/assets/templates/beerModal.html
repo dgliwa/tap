@@ -1,0 +1,19 @@
+<div class="btf-modal">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" ng-click="vm.close()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <h4 class="modal-title" id="mainModalLabel">
+                  Add new spot!&nbsp;
+                </h4>
+            </div>
+
+          
+    <form data-modal="true" class="simple_form new_beer" id="new_beer" enctype="multipart/form-data" accept-charset="UTF-8">
+        <div class="actions">
+            <label class="string optional" for="beer_name">Name</label><input class="string optional" type="text" ng-model="vm.beer.name" id="beer_name">
+            <label class="string optional" for="beer_description">Description</label><input class="string optional" type="text" ng-model="vm.beer.description" id="beer_description">
+            <button name="commit" value="Add" ng-click="vm.save()">Create</button>
+          </div>
+    </form>
+        </div>
+    </div>

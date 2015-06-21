@@ -1,6 +1,7 @@
 class BeersController < ApplicationController
   respond_to :html, :json
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, only: [:update, :create]
 
   # GET /beers
   # GET /beers.json
@@ -26,7 +27,9 @@ class BeersController < ApplicationController
   # POST /beers
   # POST /beers.json
   def create
-    respond_modal_with @beer, location: root_path
+    binding.pry
+    Beer.create(beer_params)
+    render json: { success: 'success' }
   end
 
   # PATCH/PUT /beers/1
@@ -61,6 +64,6 @@ class BeersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
-      params[:beer]
+      params.require(:beer).permit(:name, :description)
     end
 end

@@ -18,6 +18,7 @@
 //= require angular-route
 //= require angular-strap
 //= require angular-rails-templates
+//= require angular-modal
 //= require_tree ../templates
 //= require_tree .
 //= modals

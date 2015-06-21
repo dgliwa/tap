@@ -35,6 +35,7 @@ gem 'responders'
 
 #Simple form
 gem 'simple_form'
+gem 'pry'
 
 #rails templates
 gem 'angular-rails-templates'

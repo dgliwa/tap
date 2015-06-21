@@ -1,0 +1,9 @@
+<button ng-click="vm.createBeer()" class="btn btn-default"> Add a new spot</button>
+<div class="row">
+  <div class="col-md-4" ng-repeat="beer in vm.beers">
+    <ul>
+      <li>{{beer.name}}</li>
+      <li>{{beer.description}}</li>
+  </ul>
+  </div>
+</div>
