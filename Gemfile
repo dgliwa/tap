@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -34,6 +35,9 @@ gem 'responders'
 
 #Simple form
 gem 'simple_form'
+
+#rails templates
+gem 'angular-rails-templates'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,5 +59,13 @@ group :development, :test do
 
   # Devise
   gem 'devise'
+
+  gem 'rails-assets-jquery-ui'
+  gem 'rails-assets-angular'
+  gem 'rails-assets-angular-resource'
+  gem 'rails-assets-angular-route'
+  gem 'rails-assets-angular-strap'
+  gem 'rails-assets-moment', '~> 2.10.2'
+  gem 'rails-assets-angular-modal'
 end
 

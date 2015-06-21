@@ -8,7 +8,36 @@
 </head>
 <body>
 <div id="modal-holder"></div>
-<%= yield %>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        BeerSnob
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Profile</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+              <div ng-app="beerApp">
+
+                  <div ng-view></div>
+
+                </div>
+              </div>
+            </div>
+        </div><!-- /#page-content-wrapper -->
+
+    </div>
 
 </body>
 </html>
