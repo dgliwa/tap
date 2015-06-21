@@ -7,23 +7,24 @@
                 </h4>
             </div>
     <div class="modal-body">
-    <form class="form-horizontal" data-modal="true" class="simple_form new_beer" id="new_beer" enctype="multipart/form-data" >
-          <div class="form-group">
-            <label class="control-label col-xs-2">Name</label>
-            <div class="col-xs-10">
+      <form class="form-horizontal" data-modal="true" class="simple_form new_beer" id="new_beer" enctype="multipart/form-data" >
+        <div class="form-group">
+              <label class="control-label col-xs-2">Name</label>
+          <div class="col-xs-10">
             <input class="form-control" type="text" ng-model="vm.beer.name" />
-            </div>
           </div>
-          <div class="form-group">
-            <label class="control-label col-xs-2">Description</label>
-            <div class="col-xs-10">
-              <input class="form-control" type="text" ng-model="vm.beer.description" />
-            </div>
+        </div>
+        <div class="form-group">
+              <label class="control-label col-xs-2">Description</label>
+          <div class="col-xs-10">
+            <input class="form-control" type="text" ng-model="vm.beer.description" />
           </div>
-    </form>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-success" ng-click="vm.save()">Add</button>
+          <label>Profile Picture: <input type="file" ngf-select="" ng-model="vm.picFile" name="file" accept="image/*" required=""></label>
+          <div class="modal-footer">
+            <button class="btn btn-success" ng-click="vm.save()">Add</button>
+          </div>
+        </div>
+      </form>
     </div>
         </div>
     </div>

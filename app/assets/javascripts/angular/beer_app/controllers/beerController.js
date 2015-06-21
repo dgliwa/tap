@@ -10,7 +10,6 @@ angular.module("beerApp.controllers").controller("BeerController", ["$routeParam
         });
 
     vm.createBeer = function() {
-        console.log("HELLO");
         beerModal.activate();
     };
 }]);

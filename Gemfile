@@ -68,5 +68,6 @@ group :development, :test do
   gem 'rails-assets-angular-strap'
   gem 'rails-assets-moment', '~> 2.10.2'
   gem 'rails-assets-angular-modal'
+  gem 'rails-assets-ng-file-upload'
 end
 
