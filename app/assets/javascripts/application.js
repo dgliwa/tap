@@ -17,9 +17,8 @@
 //= require angular-resource
 //= require angular-route
 //= require angular-strap
-//= require angular-rails-templates
 //= require angular-modal
 //= require ng-file-upload
+//= require angular-rails-templates
 //= require_tree ../templates
 //= require_tree .
-//= modals
