@@ -8,12 +8,12 @@ angular.module('beerApp', ['beerApp.services', 'beerApp.directives', 'beerApp.co
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'AngularXMLHttpRequest';
         $routeProvider
           .when('/',
-            { templateUrl: "/assets/beerIndex.html",
+            { templateUrl: '<%= asset_path("beerIndex.html") %>',
               controller: "BeerIndexController",
               controllerAs: "vm"
             })
           .when('/beers/:id',
-            { templateUrl: "/assets/beer.html",
+            { templateUrl: '<%= asset_path("beer.html") %>',
               controller: "BeerController",
               controllerAs: "vm"
             })
