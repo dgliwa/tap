@@ -27,7 +27,6 @@ class BeersController < ApplicationController
   # POST /beers
   # POST /beers.json
   def create
-    binding.pry
     Beer.create(beer_params)
     render json: { success: 'success' }
   end
