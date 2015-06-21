@@ -1,5 +1,5 @@
 class Compressor
-  def compress
+  def compress(string)
 
   end
 end
