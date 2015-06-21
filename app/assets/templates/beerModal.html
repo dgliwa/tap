@@ -19,11 +19,16 @@
           <div class="col-xs-10">
             <input class="form-control" type="text" ng-model="vm.beer.description" />
           </div>
-          <label>Profile Picture: <input type="file" ngf-select="" ng-model="vm.picFile" name="file" accept="image/*" required=""></label>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-xs-4">Profile Picture: </label>
+          <div class="col-xs-8">
+            <input type="file" ngf-select="" ng-model="vm.picFile" name="file" accept="image/*" required="">
+        </div>
+        </div>
           <div class="modal-footer">
             <button class="btn btn-success" ng-click="vm.save()">Add</button>
           </div>
-        </div>
       </form>
     </div>
         </div>

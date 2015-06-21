@@ -12,6 +12,7 @@ angular.module("beerApp.controllers").controller("BeerModalController", ["beers"
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
         }).success(function (data, status, headers, config) {
             beerModal.deactivate();
+            vm.$emit('modalEvent');
         });
     };
 
