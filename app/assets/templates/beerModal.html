@@ -6,14 +6,24 @@
                   Add new spot!&nbsp;
                 </h4>
             </div>
-
-          
-    <form data-modal="true" class="simple_form new_beer" id="new_beer" enctype="multipart/form-data" accept-charset="UTF-8">
-        <div class="actions">
-            <label class="string optional" for="beer_name">Name</label><input class="string optional" type="text" ng-model="vm.beer.name" id="beer_name">
-            <label class="string optional" for="beer_description">Description</label><input class="string optional" type="text" ng-model="vm.beer.description" id="beer_description">
-            <button name="commit" value="Add" ng-click="vm.save()">Create</button>
-          </div>
+    <div class="modal-body">
+    <form class="form-horizontal" data-modal="true" class="simple_form new_beer" id="new_beer" enctype="multipart/form-data" >
+          <div class="form-group">
+            <label class="control-label col-xs-2">Name</label>
+            <div class="col-xs-10">
+            <input class="form-control" type="text" ng-model="vm.beer.name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-2">Description</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" ng-model="vm.beer.description" />
+            </div>
+          </div>
     </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-success" ng-click="vm.save()">Add</button>
+    </div>
         </div>
     </div>

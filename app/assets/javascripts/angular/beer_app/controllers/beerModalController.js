@@ -10,5 +10,9 @@ angular.module("beerApp.controllers").controller("BeerModalController", ["beers"
 
         });
     };
+
+    vm.close = function() {
+    	beerModal.deactivate();
+    }
 }]);
 
