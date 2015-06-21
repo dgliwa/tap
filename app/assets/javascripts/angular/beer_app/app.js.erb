@@ -12,9 +12,9 @@ angular.module('beerApp', ['beerApp.services', 'beerApp.directives', 'beerApp.co
               controller: "BeerIndexController",
               controllerAs: "vm"
             })
-          .when('/beers/:id',
-            { templateUrl: '<%= asset_path("beer.html") %>',
-              controller: "BeerController",
+          .when('/myBeers/',
+            { templateUrl: '<%= asset_path("myBeers.html") %>',
+              controller: "MyBeerController",
               controllerAs: "vm"
             })
           .otherwise({

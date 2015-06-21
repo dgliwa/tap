@@ -1,23 +1,22 @@
-angular.module("beerApp.controllers").controller("BeerController", ["$routeParams", "$location", "$filter", "$q", "$anchorScroll", "beers", "beerModal", function($routeParams, $location, $filter, $q, $anchorScroll, beers, beerModal) {
+angular.module("beerApp.controllers").controller("MyBeerController", ["$routeParams", "$location", "$filter", "$q", "$anchorScroll", "beers", "beerModal", function($routeParams, $location, $filter, $q, $anchorScroll, beers, beerModal) {
     var vm = this;
     vm.beers = [];
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-        beers.query({ latitude: position.coords.latitude, longitude: position.coords.longitude }).$promise
-            .then(function(response) {
-                console.log(response);
-                vm.beers = response;
+    beers.myBeers().$promise
+    .then(function(response) {
+        vm.beers = response;
+    }, function(data) {
+
+    });
+
+    vm.delete = function(beer) {
+        beers.delete({id: beer.id}).$promise.
+            then(function(response){
+                var index = vm.beers.indexOf(beer);
+                vm.beers.splice(index, 1);
             }, function(data) {
 
             });
-    });
-
-    vm.createBeer = function() {
-        beerModal.activate();
-    };
-
-    vm.viewBeer = function(beer) {
-        $location.path('/beers/' + beer.id);
     };
 
 }]);

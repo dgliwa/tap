@@ -1,15 +1,23 @@
 class BeersController < ApplicationController
   respond_to :html, :json
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, only: [:update, :create]
+  skip_before_filter :verify_authenticity_token, only: [:update, :create, :destroy]
 
   # GET /beers
   # GET /beers.json
   def index
-    latitude = params[:latitude].to_f
-    longitude = params[:longitude].to_f
-    @beers = Beer.where(latitude: latitude - 10..latitude + 10, longitude: longitude - 10..longitude + 10)
-    puts @beers
+    if params[:latitude] && params[:longitude]
+      latitude = params[:latitude].to_f
+      longitude = params[:longitude].to_f
+      @beers = Beer.where(latitude: latitude - 10..latitude + 10, longitude: longitude - 10..longitude + 10).where.not(user: current_user)
+    else
+      @beers = Beer.where.not(user: current_user)
+    end
+  end
+
+  def me
+    @beers = Beer.where(user: current_user)
+    render 'index'
   end
 
   # GET /beers/1
@@ -30,7 +38,9 @@ class BeersController < ApplicationController
   # POST /beers
   # POST /beers.json
   def create
-    Beer.create(beer_params)
+    beer = Beer.new(beer_params)
+    beer.user = current_user
+    beer.save
     render json: { success: 'success' }
   end
 
