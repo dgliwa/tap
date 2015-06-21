@@ -27,6 +27,7 @@ class BeersController < ApplicationController
   # POST /beers
   # POST /beers.json
   def create
+    binding.pry
     Beer.create(beer_params)
     render json: { success: 'success' }
   end
@@ -65,6 +66,6 @@ class BeersController < ApplicationController
     def beer_params
       params[:beer] = JSON.parse(params[:beer])
       params[:beer][:image] = params[:file]
-      params.require(:beer).permit(:name, :description, :file)
+      params.require(:beer).permit(:name, :description, :image)
     end
 end
