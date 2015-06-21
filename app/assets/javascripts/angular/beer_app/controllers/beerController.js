@@ -1,4 +1,4 @@
-angular.module("beerApp.controllers").controller("BeerController", ["$routeParams", "$window", "$filter", "$q", "$anchorScroll", "beers", "beerModal", function($routeParams, $window, $filter, $q, $anchorScroll, beers, beerModal) {
+angular.module("beerApp.controllers").controller("BeerController", ["$routeParams", "$location", "$filter", "$q", "$anchorScroll", "beers", "beerModal", function($routeParams, $location, $filter, $q, $anchorScroll, beers, beerModal) {
     var vm = this;
     vm.beers = [];
 
@@ -15,6 +15,10 @@ angular.module("beerApp.controllers").controller("BeerController", ["$routeParam
 
     vm.createBeer = function() {
         beerModal.activate();
+    };
+
+    vm.viewBeer = function(beer) {
+        $location.path('/beers/' + beer.id);
     };
 
 }]);
