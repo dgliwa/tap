@@ -58,6 +58,7 @@ class BeersController < ApplicationController
 
   def in_stock
     CommentService.new().notify_followers @beer
+    render json: { success: 'success' }
   end
 
   # PATCH/PUT /beers/1
