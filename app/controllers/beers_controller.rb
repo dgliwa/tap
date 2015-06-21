@@ -9,6 +9,7 @@ class BeersController < ApplicationController
     latitude = params[:latitude].to_f
     longitude = params[:longitude].to_f
     @beers = Beer.where(latitude: latitude - 10..latitude + 10, longitude: longitude - 10..longitude + 10)
+    puts @beers
   end
 
   # GET /beers/1

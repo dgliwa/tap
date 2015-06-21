@@ -5,6 +5,7 @@ angular.module("beerApp.controllers").controller("BeerController", ["$routeParam
     navigator.geolocation.getCurrentPosition(function(position) {
         beers.query({ latitude: position.coords.latitude, longitude: position.coords.longitude }).$promise
             .then(function(response) {
+                console.log(response);
                 vm.beers = response;
             }, function(data) {
 

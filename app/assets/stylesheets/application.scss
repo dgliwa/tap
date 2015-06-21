@@ -15,6 +15,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .btf-modal {
     position: fixed;
@@ -63,6 +65,10 @@
 .panel .img-circle {
  width:50px;
  height:50px;
+}
+
+.col-md-3 {
+    margin-top: 15px;
 }
 
     .beer-name {

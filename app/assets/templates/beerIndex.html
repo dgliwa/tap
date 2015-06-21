@@ -1,20 +1,31 @@
 <div class="container">
 <button class="add-beer-button"ng-click="vm.createBeer()" class="btn btn-default"> Add a new spot</button>
 <div class="row">
-  <div class="col-md-4" ng-repeat="beer in vm.beers">
-    	<div class="beer-row row">
-	   <div class="beerPanel">
-        <div class="panel panel-default" style="height: 100px; width: 250px;">
-          <div class="panel-thumbnail"><img src="{{ beer.url }}" class="img-responsive"></div>
-          <div class="panel-body">
-              <img class="portrait-beer-panel" src="http://api.randomuser.me/portraits/med/men/20.jpg" width="25px" height="25px">
-              <label class="beer-name"> {{ beer.name }} </label>
-              <p class="beer-description"> {{ beer.description }} </p>
-            <div ng-hide="beer.commented" class="panel-body">
-            <input ng-enter="vm.message(beer)" ng-model="beer.text">
-          </div>
+  <div class="col-md-3" ng-repeat="beer in vm.beers">
+    <div class="ui card">
+      <div class="image">
+        <img src="{{ beer.url }}">
+      </div>
+      <div class="content">
+        <a class="header">{{ beer.name }}</a>
+        <i class="fa fa-weixin" title="text-message" style="float: right;"></i>
+        <div class="meta">
+          <i class="fa fa-map-marker" title="location" style="float: left;"></i>
+          <span class="date">Wicker Park, Chicago, IL</span>
+        </div>
+        <div class="description">
+         {{ beer.description }}
         </div>
       </div>
-  </div>
-</div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          #IPA
+        </a>
+        <div class="right floated author">
+          <img class="ui avatar image" src="http://api.randomuser.me/portraits/thumb/women/39.jpg">
+            <i class="fa fa-mars" title="male"></i>
+        </div>
+      </div>
+    </div>
 </div>
