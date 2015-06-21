@@ -12,10 +12,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20150621063049) do
-
   create_table "beers", force: :cascade do |t|
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -23,6 +22,8 @@ ActiveRecord::Schema.define(version: 20150621063049) do
     t.string   "description"
     t.string   "name"
     t.integer  "user_id"
+    t.decimal  "latitude",           precision: 9, scale: 7
+    t.decimal  "longitude",          precision: 9, scale: 7
   end
 
   add_index "beers", ["user_id"], name: "index_beers_on_user_id"
