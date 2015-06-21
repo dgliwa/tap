@@ -60,7 +60,7 @@ group :development, :test do
 
   # Devise
   gem 'devise'
-
+  gem 'httpi'
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-angular'
   gem 'rails-assets-angular-resource'

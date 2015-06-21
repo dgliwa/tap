@@ -10,7 +10,8 @@
               <img class="portrait-beer-panel" src="http://api.randomuser.me/portraits/med/men/20.jpg" width="25px" height="25px">
               <label class="beer-name"> {{ beer.name }} </label>
               <p class="beer-description"> {{ beer.description }} </p>
-            </p>
+            <div ng-hide="beer.commented" class="panel-body">
+            <input ng-enter="vm.message(beer)" ng-model="beer.text">
           </div>
         </div>
       </div>

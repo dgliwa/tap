@@ -9,6 +9,11 @@ angular.module('beerApp', ['beerApp.services', 'beerApp.directives', 'beerApp.co
         $routeProvider
           .when('/',
             { templateUrl: "/assets/beerIndex.html",
+              controller: "BeerIndexController",
+              controllerAs: "vm"
+            })
+          .when('/beers/:id',
+            { templateUrl: "/assets/beer.html",
               controller: "BeerController",
               controllerAs: "vm"
             })
