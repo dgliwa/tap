@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20150621063049) do
     t.datetime "image_updated_at"
     t.string   "description"
     t.string   "name"
-    t.integer  "users_id"
+    t.integer  "user_id"
   end
 
-  add_index "beers", ["users_id"], name: "index_beers_on_users_id"
+  add_index "beers", ["user_id"], name: "index_beers_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
