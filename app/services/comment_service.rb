@@ -12,4 +12,17 @@ class CommentService
 
     true
   end
+
+  def notify_followers(beer)
+    messages = beer.users.map { |user| '{"text":  "Beer snob message: ' + beer.name + ' is in stock!", "callback_url": "http://beer-snob.herokuapp.com/sms_callback", "to_number": "+1' + user.phone_number + '" }' }.join(', ')
+    request = HTTPI::Request.new
+    request.headers['Content-Type'] = 'application/json'
+    request.url = "https://api.us1.corvisa.io/sms/"
+    request.body = '[{"from_number": "+14143235967","messages": [' + messages + ']}]'
+    request.auth.basic("hXv5b8yak2J7otSqMz3cZ", "sZeDjIShpkya.E9fQrMHLBT8w$JKC/t=2")
+
+    HTTPI.post(request)
+
+    true
+  end
 end

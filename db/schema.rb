@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621063049) do
+ActiveRecord::Schema.define(version: 20150621152946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,20 @@ ActiveRecord::Schema.define(version: 20150621063049) do
     t.datetime "image_updated_at"
     t.string   "description"
     t.string   "name"
+    t.integer  "user_id"
     t.decimal  "latitude",           precision: 9, scale: 7
     t.decimal  "longitude",          precision: 9, scale: 7
-    t.integer  "user_id"
   end
 
   add_index "beers", ["user_id"], name: "index_beers_on_user_id", using: :btree
+
+  create_table "user_beers", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "beer_id"
+  end
+
+  add_index "user_beers", ["beer_id"], name: "index_user_beers_on_beer_id", using: :btree
+  add_index "user_beers", ["user_id"], name: "index_user_beers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

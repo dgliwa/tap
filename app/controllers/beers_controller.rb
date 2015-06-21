@@ -1,7 +1,7 @@
 class BeersController < ApplicationController
   respond_to :html, :json
-  before_action :set_beer, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, only: [:update, :create, :destroy]
+  before_action :set_beer, only: [:show, :edit, :update, :destroy, :follow, :in_stock, :unfollow]
+  skip_before_filter :verify_authenticity_token, only: [:update, :create, :destroy, :notify_followers, :follow, :in_stock, :unfollow]
 
   # GET /beers
   # GET /beers.json
@@ -18,6 +18,18 @@ class BeersController < ApplicationController
   def me
     @beers = Beer.where(user: current_user)
     render 'index'
+  end
+
+  def follow
+    @beer.users << current_user unless @beer.users.include? current_user
+    @beer.save!
+    render json: {success: 'success'}
+  end
+
+  def unfollow
+    @beer.users.delete current_user
+    @beer.save!
+    render json: {success: 'success'}
   end
 
   # GET /beers/1
@@ -42,6 +54,10 @@ class BeersController < ApplicationController
     beer.user = current_user
     beer.save
     render json: { success: 'success' }
+  end
+
+  def in_stock
+    CommentService.new().notify_followers @beer
   end
 
   # PATCH/PUT /beers/1

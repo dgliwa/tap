@@ -19,5 +19,13 @@ angular.module("beerApp.controllers").controller("MyBeerController", ["$routePar
             });
     };
 
+    vm.inStock = function(beer) {
+        beers.inStock({id: beer.id}).$promise.
+            then(function(response){
+            }, function(data) {
+
+            });
+    };
+
 }]);
 

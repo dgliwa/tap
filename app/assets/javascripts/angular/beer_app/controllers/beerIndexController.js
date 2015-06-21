@@ -19,16 +19,20 @@ angular.module("beerApp.controllers").controller("BeerIndexController", ["$locat
         $location.path('/beers/' + beer.id);
     };
 
-    vm.message = function(beer) {
-        comments.save({beer_id: beer.id, text: beer.text}).$promise
+    vm.follow = function(beer) {
+        beers.follow({id: beer.id}).$promise
             .then(function(response) {
-                beer.toggled = false;
+                beer.followed = true;
             }, function(data) {
             });
     };
 
-    vm.toggleBeer = function(beer) {
-        beer.toggled = beer.toggled ? false : true;
-    }
+    vm.unfollow = function(beer) {
+        beers.unfollow({id: beer.id}).$promise
+            .then(function(response) {
+                beer.followed = false;
+            }, function(data) {
+            });
+    };
 }]);
 
