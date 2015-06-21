@@ -6,7 +6,9 @@ class BeersController < ApplicationController
   # GET /beers
   # GET /beers.json
   def index
-    @beers = Beer.all
+    latitude = params[:latitude].to_f
+    longitude = params[:longitude].to_f
+    @beers = Beer.where(latitude: latitude - 10..latitude + 10, longitude: longitude - 10..longitude + 10)
   end
 
   # GET /beers/1
@@ -65,6 +67,6 @@ class BeersController < ApplicationController
     def beer_params
       params[:beer] = JSON.parse(params[:beer])
       params[:beer][:image] = params[:file]
-      params.require(:beer).permit(:name, :description, :image)
+      params.require(:beer).permit(:name, :description, :image, :latitude, :longitude)
     end
 end

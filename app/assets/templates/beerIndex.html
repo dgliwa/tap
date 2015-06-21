@@ -1,17 +1,19 @@
-<button ng-click="vm.createBeer()" class="btn btn-default"> Add a new spot</button>
+<div class="container">
+<button class="add-beer-button"ng-click="vm.createBeer()" class="btn btn-default"> Add a new spot</button>
 <div class="row">
   <div class="col-md-4" ng-repeat="beer in vm.beers">
-    	<div class="row">
+    	<div class="beer-row row">
 	   <div class="beerPanel">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="height: 100px; width: 250px;">
           <div class="panel-thumbnail"><img src="{{ beer.url }}" class="img-responsive"></div>
           <div class="panel-body">
               <img class="portrait-beer-panel" src="http://api.randomuser.me/portraits/med/men/20.jpg" width="25px" height="25px">
-              <label> {{ beer.name }} </label>
-              <p> {{ beer.description }} </p>
+              <label class="beer-name"> {{ beer.name }} </label>
+              <p class="beer-description"> {{ beer.description }} </p>
             </p>
           </div>
         </div>
       </div>
   </div>
+</div>
 </div>

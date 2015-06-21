@@ -2,12 +2,14 @@ angular.module("beerApp.controllers").controller("BeerController", ["$routeParam
     var vm = this;
     vm.beers = [];
 
-    beers.query().$promise
-        .then(function(response) {
-            vm.beers = response;
-        }, function(data) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        beers.query({ latitude: position.coords.latitude, longitude: position.coords.longitude }).$promise
+            .then(function(response) {
+                vm.beers = response;
+            }, function(data) {
 
-        });
+            });
+    });
 
     vm.createBeer = function() {
         beerModal.activate();
