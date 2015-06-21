@@ -1,6 +1,6 @@
 class Compressor
   def compress(string)
-
+    string
   end
 end
 
